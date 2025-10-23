@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenementvergunning aanvragen - Gemeente Deurne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Ctext x='50' y='25' text-anchor='middle' font-family='Inter' font-size='18' font-weight='bold' fill='%23003366'%3EGemeente Deurne%3C/text%3E%3C/svg%3E" alt="Gemeente Deurne">
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#vragenlijst" class="nav-link">Vragenlijst</a>
+                    <a href="#checklist" class="nav-link">Checklist</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Evenementvergunning aanvragen</h1>
+                    <p class="hero-subtitle">Vraag eenvoudig uw evenementvergunning aan voor evenementen in gemeente Deurne</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('vragenlijst')">Start aanvraag</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('checklist')">Bekijk checklist</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vragenlijst Section -->
+        <section id="vragenlijst" class="questionnaire">
+            <div class="container">
+                <h2>Vragenlijst voor evenementvergunning</h2>
+                <p class="section-subtitle">Beantwoord de onderstaande vragen om te bepalen welke vergunning u nodig heeft</p>
+                
+                <div class="questionnaire-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    
+                    <div class="question-card" id="questionCard">
+                        <div class="question-number">
+                            <span id="questionNumber">1</span> van <span id="totalQuestions">8</span>
+                        </div>
+                        <h3 id="questionText">Wat voor soort evenement wilt u organiseren?</h3>
+                        <div class="question-options" id="questionOptions">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                        <div class="question-navigation">
+                            <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>Vorige</button>
+                            <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Volgende</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section id="checklist" class="checklist">
+            <div class="container">
+                <h2>Checklist evenementvergunning</h2>
+                <p class="section-subtitle">Gebruik deze checklist om ervoor te zorgen dat u alles heeft voor uw aanvraag</p>
+                
+                <div class="checklist-grid">
+                    <div class="checklist-category">
+                        <h3>Basis informatie</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="basic1">
+                                <label for="basic1">Naam en contactgegevens organisator</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="basic2">
+                                <label for="basic2">Datum en tijden van het evenement</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="basic3">
+                                <label for="basic3">Locatie en adres van het evenement</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="basic4">
+                                <label for="basic4">Verwachte aantal bezoekers</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3>Veiligheid & Vergunningen</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="safety1">
+                                <label for="safety1">Veiligheidsplan (bij >1000 bezoekers)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="safety2">
+                                <label for="safety2">EHBO aanwezigheid geregeld</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="safety3">
+                                <label for="safety3">Brandweer melding (indien nodig)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="safety4">
+                                <label for="safety4">Parkeerplan opgesteld</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3>Geluid & Overlast</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="noise1">
+                                <label for="noise1">Geluidsoverlast beperkingen bekend</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="noise2">
+                                <label for="noise2">Omwonenden geïnformeerd</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="noise3">
+                                <label for="noise3">Muziek/geluid niveau binnen normen</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3>Documenten</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="docs1">
+                                <label for="docs1">Plattegrond van het terrein</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="docs2">
+                                <label for="docs2">Toestemming eigenaar locatie</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="docs3">
+                                <label for="docs3">Aansprakelijkheidsverzekering</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="docs4">
+                                <label for="docs4">Horeca vergunning (indien van toepassing)</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="checklist-summary">
+                    <div class="summary-card">
+                        <h3>Voortgang</h3>
+                        <div class="progress-circle">
+                            <span id="checklistProgress">0</span>%
+                        </div>
+                        <p id="checklistStatus">Start met het afvinken van de items</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultaat Section -->
+        <section id="resultaat" class="result" style="display: none;">
+            <div class="container">
+                <h2>Uw resultaat</h2>
+                <div class="result-card">
+                    <div class="result-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"></path>
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </div>
+                    <h3 id="resultTitle">Evenementvergunning vereist</h3>
+                    <p id="resultDescription">Op basis van uw antwoorden heeft u een evenementvergunning nodig.</p>
+                    <div class="result-actions">
+                        <button class="btn btn-primary">Aanvraag starten</button>
+                        <button class="btn btn-secondary" onclick="resetQuestionnaire()">Opnieuw beginnen</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Gemeente Deurne</h3>
+                        <p>Voor vragen over evenementvergunningen kunt u contact opnemen met:</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <strong>Telefoon:</strong> 0493 - 31 88 88
+                            </div>
+                            <div class="contact-item">
+                                <strong>E-mail:</strong> info@deurne.nl
+                            </div>
+                            <div class="contact-item">
+                                <strong>Openingstijden:</strong> Ma-Vr 09:00-17:00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Stel een vraag</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Naam</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Vraag</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Verstuur</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024 Gemeente Deurne. Alle rechten voorbehouden.</p>
+                    <p>Deze website helpt u bij het aanvragen van een evenementvergunning.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy</a>
+                    <a href="#disclaimer">Disclaimer</a>
+                    <a href="#toegankelijkheid">Toegankelijkheid</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
