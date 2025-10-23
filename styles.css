@@ -56,7 +56,7 @@ body {
 }
 
 .logo img {
-    height: 35px;
+    height: 50px;
     max-width: 100%;
     object-fit: contain;
 }
@@ -482,7 +482,7 @@ section h2 {
     }
     
     .logo img {
-        height: 30px;
+        height: 40px;
     }
 
     .hero-content h1 {
